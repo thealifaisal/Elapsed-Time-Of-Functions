@@ -33,6 +33,7 @@ namespace a1
 
     public class MyParser
     {
+        // no need for this line
         Regex rx = new Regex(@"(?<type>(start|stop))(?:,(?<key>[A-Z]+))?(?:,(?<value>\d+))", RegexOptions.IgnoreCase);
 
         public List<KeyValuePair<string, Decimal>> ReadTextFile(string fileName)
@@ -49,32 +50,48 @@ namespace a1
 
                 if(sL.StartsWith("stop"))
                 {
+                    //if line starts with 'stop' then format of sL would be
+                    //sL = stop,<timestamp>
+                    
                     string[] array2index, array3index;
 
                     string sE = st.Pop();
-
-                    array2index = sL.Split(',');
-                    array3index = sE.Split(',');
-
+                    // hence format of sE also is
+                    // start,<function-name>,<timestamp>
+                    
+                    array2index = sL.Split(','); // array2index : { "stop" , "timestamp/stop time of function" } 
+                    array3index = sE.Split(','); // array3index : { "start" , "functionName" , "timestamp/start time of function" }
+                    
+                    // stop time of function
+                        // array2index : { "stop" , "timestamp/stop time of function" }
                     string stopTimeString = array2index[1];
                     decimal stopTime = Convert.ToDecimal(stopTimeString);
-
+                    
+                    // start time of function
+                        // array3index : { "start" , "functionName" , "timestamp/start time of function" }
                     string startTimeString = array3index[2];
                     decimal startTime = Convert.ToDecimal(startTimeString);
-
+                    
+                    // total running/elapsed time of function
                     decimal elapsedTime = stopTime - startTime;
-
+                    
+                    // array3index : { "start" , "functionName" , "timestamp/start time of function" }
                     string funcName = array3index[1];
-
+                    
                     KeyValuePair<string, decimal> answer = new KeyValuePair<string, decimal>(funcName, elapsedTime);
-
+                       
+                    // adding key value pair to list
                     L.Add(answer);
                 }
                 else
                 {
+                    // else if line doesnt start with 'stop' then format of sL would be
+                    //sL = start,<function-name>,<timestamp>
                     st.Push(sL);
                 }
             }
+            
+            //returning the list
             return L;
         }
     }
