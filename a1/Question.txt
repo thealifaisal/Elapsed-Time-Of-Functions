@@ -1,11 +1,22 @@
-Write a console application, use   I/O  library to read attached file “small.txt”  and convert it to “output-small. Text” format see attached cmd. 
+Write a console application, use I/O library to read attached file “small.txt”  and convert it to “output-small.txt” format.
+See attached cmd.
+
 It should not take more than 1 hour or two.
-Please Read the instructions carefully which is very essential
- 
+
+Please Read the instructions carefully which is very essential.
+
 Instructions:
+
 Start: entry into a function - format is start,<function-name>,<timestamp>
+
 Stop: function finished - format is stop,<timestamp>
+
 You can assume that every start has a corresponding stop message and all messages will conform to the above format.
-If you see multiple starts before a stop, then you can look at it as nested function calls, so the next stop will correspond with the most recently started function that hasn't yet been stopped, in a stack-like fashion.
-Your task is to write a program to parse an input file and produce a list of functions with their total running time. Ideally, this output should also allow you to visualize the tree structure of the program as well. I've included an example output for the small.txt input file as well.
+
+If you see multiple starts before a stop, then you can look at it as nested function calls,
+so the next stop will correspond with the most recently started function that hasn't yet been stopped, in a stack-like fashion.
+
+Your task is to write a program to parse an input file and produce a list of functions with their total running time.
+Ideally, this output should also allow you to visualize the tree structure of the program as well.
+
 Feel free to ask questions if anything is unclear.
