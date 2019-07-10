@@ -1,4 +1,4 @@
-Write a console application, use   I/O  library to read attached file ìsmall.txtî  and convert it to ìoutput-small. Textî format see attached cmd. 
+Write a console application, use   I/O  library to read attached file ‚Äúsmall.txt‚Äù  and convert it to ‚Äúoutput-small. Text‚Äù format see attached cmd. 
 It should not take more than 1 hour or two.
 Please Read the instructions carefully which is very essential
  
@@ -9,52 +9,3 @@ You can assume that every start has a corresponding stop message and all message
 If you see multiple starts before a stop, then you can look at it as nested function calls, so the next stop will correspond with the most recently started function that hasn't yet been stopped, in a stack-like fashion.
 Your task is to write a program to parse an input file and produce a list of functions with their total running time. Ideally, this output should also allow you to visualize the tree structure of the program as well. I've included an example output for the small.txt input file as well.
 Feel free to ask questions if anything is unclear.
-I can help you to start. I already did Regex to save you some time.
- 
-     internal class Program
-       {
-        private static void Main(string[] args)
-        {
-            Console.WriteLine("Please enter the Path");
-            string path = Console.ReadLine();
-              
-
-            // you can return with the value pair list or list of class you can have
-                   // both options
-             var mylist = new List<KeyValuePair<string, Decimal>>();
- 
-            MyParser parserr = new MyParser();
-            mylist = parserr.ReadTextFile(path);
- 
-            foreach (var item in mylist)
-            {
-                Console.WriteLine($" {item.Key} :  {item.Value}");
-            }
-            Console.ReadLine();
- 
-        }
- 
-    }  
- 
-
-public class MyParser
-    {
- 
-   Regex rx = new Regex(@"(?<type>(start|stop))(?:,(?<key>[A-   
-            Z]+))?(?:,(?<value>\d+))", RegexOptions.IgnoreCase);
-         
- 
-       public List<KeyValuePair<string, Decimal>> ReadTextFile(string 
-                                                     fileName)
-        {
-            TextReader thisreader = new StreamReader(fileName);
- 
-                                      -----  your logic  and see how the calculation is happening (it is elapsed time )        
-                                         ----  read the instruction and to make "thisreader" to looks like 
-                                         ---             output-small.txt
-                                     -------
-                                      ------
-                                     -------
-                              }
- 
-             }
